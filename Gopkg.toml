@@ -29,8 +29,9 @@
   go-tests = true
   unused-packages = true
 
-[metadata.heroku]
-  root-package = "github.com/ridwanakf/nadc-intro-to-rest"
-  go-version = "go1.13.6"
-  install = [ "./..." ]
-  ensure = true
+# Heroku settings
+#[metadata.heroku]
+#  root-package = "github.com/ridwanakf/nadc-intro-to-rest"
+#  go-version = "go1.13.6"
+#  install = [ "./..." ]
+#  ensure = true
