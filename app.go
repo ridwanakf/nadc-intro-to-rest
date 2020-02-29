@@ -44,6 +44,12 @@ func initRouter(router *httprouter.Router, handler *internal.Handler) {
 
 	router.GET("/", handler.Index)
 
+	//Book API paths
+	router.GET("/book/:bookID", handler.GetBookByID)
+	router.POST("/book", handler.InsertNewBook)
+	router.PUT("/book/:bookID", handler.UpdateBookRating)
+	router.DELETE("/book/:bookID", handler.DeleteBookByID)
+
 	// `httprouter` library uses `ServeHTTP` method for it's 404 pages
 	router.NotFound = handler
 }
