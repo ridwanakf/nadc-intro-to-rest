@@ -1,2 +1,48 @@
 # nadc-intro-to-rest
-Pertemuan ke-1 Night Login App Development Community (NADC) - Intro to REST API using Go
+The first workshop of Night Login App Development Community (NADC) - Intro to REST API using Go
+
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing
+purposes.
+
+### Prerequisites
+
+1. Clone repository: `git clone git@github.com:ridwanakf/nadc-intro-to-rest.git`
+2. Run dep: `dep ensure -v`
+3. Install postgresql: [Postgresql]("https://www.postgresql.org/download/")
+4. Run database migrations: refer below
+
+### Run Project
+
+Running project:
+
+```$xslt
+make run
+```
+
+### Migrations
+
+When running in Local, you need to run the db-migrations to setup the app's database for your local machine.
+
+1. Go to directory `nadc-intro-to-rest/migrations`
+2. Run `go run *.go up`
+
+## Directory Structure
+
+This repository is organized in the following directory structure.
+
+```
+nadc-intro-to-rest
+|-- internal                               # Go files in this folder represent the Big-Pictures and Contracts of the system
+|-- migrations                             # Contains Database migration files or the system
+|-- vendor                                 # Dependencies folder that's maintained by dep tool https://golang.github.io/dep/
+|-- Gopkg.lock                             # https://golang.github.io/dep/docs/Gopkg.lock.html
+|-- Gopkg.toml                             # https://golang.github.io/dep/docs/Gopkg.toml.html
+
+```
+
+## Tech Stacks
+
+- Golang
+- Postgresql
