@@ -1,10 +1,17 @@
 # nadc-intro-to-rest
-The first workshop of Night Login App Development Community (NADC) - Intro to REST API using Go
+This is the repository for the first workshop of Night Login App Development Community (NADC) - Intro to REST API using Go.
+This repo is intended to give an introduction to REST API development using Golang.
 
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing
 purposes.
+
+### Branches list
+There are three branches in this repository, they are:
+1. `master` : consists of basic code (only one endpoint)
+2. `preparation` : consists of all handlers but have not been implemented yet.
+3. `final` : consists of all implementations and ready for deployment.
 
 ### Prerequisites
 
