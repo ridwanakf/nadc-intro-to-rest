@@ -1,0 +1,5 @@
+database:
+  driver: "postgres"
+  address: "postgres://username:password@host-address:port/database-name?sslmode=disable"
+  max_conns: 3000
+  max_idle_conns: 1000
