@@ -2,9 +2,9 @@ package app
 
 import (
 	"database/sql"
+	db2 "github.com/ridwanakf/nadc-intro-to-rest/internal/repo/db"
 
 	"github.com/ridwanakf/nadc-intro-to-rest/internal"
-	"github.com/ridwanakf/nadc-intro-to-rest/internal/repo"
 )
 
 type Repos struct {
@@ -13,7 +13,7 @@ type Repos struct {
 
 func newRepos(db *sql.DB) (*Repos, error) {
 	r := &Repos{
-		bookRepo: repo.NewBookDB(db),
+		bookRepo: db2.NewBookDB(db),
 	}
 
 	return r, nil
