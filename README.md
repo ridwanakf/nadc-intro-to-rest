@@ -1,4 +1,4 @@
-# nadc-intro-to-rest
+# NADC - Intro to REST
 This is the repository for the first workshop of Night Login App Development Community (NADC) - Intro to REST API using Go.
 This repo is intended to give an introduction to REST API development using Golang.
 
@@ -12,12 +12,13 @@ There are three branches in this repository, they are:
 1. `master` : consists of basic code (only one endpoint)
 2. `preparation` : consists of all handlers but have not been implemented yet.
 3. `final` : consists of all implementations and ready for deployment.
+4. `final-clean-arch` : consists of all implementations and ready for deployment.Developed using Clean Architecture.
 
 ### Prerequisites
 
 1. Clone repository: `git clone git@github.com:ridwanakf/nadc-intro-to-rest.git`
 2. Run dep: `dep ensure -v`
-3. Install postgresql: [Postgresql]("https://www.postgresql.org/download/")
+3. Install postgresql: [Postgresql](https://www.postgresql.org/download/)
 4. Run database migrations: refer below
 
 ### Run Project
