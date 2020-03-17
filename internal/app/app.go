@@ -73,8 +73,13 @@ func readConfig(cfgPath string) (config.Config, error) {
 
 func initDB(cfg config.Config) (*sql.DB, error) {
 
+	dbAddress := os.Getenv("DATABASE_URL")
+	if dbAddress == "" {
+		dbAddress = cfg.DB.Address
+	}
+
 	// Initialize SQL DB
-	db, err := sql.Open(cfg.DB.Driver, cfg.DB.Address)
+	db, err := sql.Open(cfg.DB.Driver, dbAddress)
 	if err != nil {
 		return nil, err
 	}
