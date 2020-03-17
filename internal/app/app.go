@@ -8,13 +8,15 @@ import (
 	_ "github.com/lib/pq"
 	"github.com/pkg/errors"
 	"github.com/ridwanakf/nadc-intro-to-rest/constant"
-	"github.com/ridwanakf/nadc-intro-to-rest/internal/config"
+	"github.com/ridwanakf/nadc-intro-to-rest/internal/app/config"
 	"gopkg.in/yaml.v2"
 )
 
 type NadcRest struct {
 	Repos    *Repos
 	UseCases *Usecases
+
+	Cfg config.Config
 }
 
 func NewNadcRest() (*NadcRest, error) {
@@ -29,6 +31,8 @@ func NewNadcRest() (*NadcRest, error) {
 	}
 
 	app := new(NadcRest)
+
+	app.Cfg = cfg
 
 	app.Repos, err = newRepos(db)
 	if err != nil {
@@ -49,10 +53,10 @@ func (a *NadcRest) Close() []error {
 	return errs
 }
 
-func readConfig(cfgPath string) (*config.Config, error) {
+func readConfig(cfgPath string) (config.Config, error) {
 	f, err := os.Open(cfgPath)
 	if err != nil {
-		return nil, errors.Wrapf(err, "config file not found")
+		return config.Config{}, errors.Wrapf(err, "config file not found")
 	}
 	defer f.Close()
 
@@ -61,13 +65,13 @@ func readConfig(cfgPath string) (*config.Config, error) {
 	decoder := yaml.NewDecoder(f)
 	err = decoder.Decode(&cfg)
 	if err != nil {
-		return nil, errors.Wrapf(err, "error reading config")
+		return config.Config{}, errors.Wrapf(err, "error reading config")
 	}
 
-	return &cfg, nil
+	return cfg, nil
 }
 
-func initDB(cfg *config.Config) (*sql.DB, error) {
+func initDB(cfg config.Config) (*sql.DB, error) {
 
 	// Initialize SQL DB
 	db, err := sql.Open(cfg.DB.Driver, cfg.DB.Address)

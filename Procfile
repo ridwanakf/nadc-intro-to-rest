@@ -1,1 +1,1 @@
-web: bin/nadc-intro-to-rest
+web: bin/cmd
