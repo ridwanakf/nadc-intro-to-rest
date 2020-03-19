@@ -34,7 +34,7 @@ func Test_getDBConnection(t *testing.T) {
 
 	pgOpt := &pg.Options{
 		Addr:     "localhost:5432",
-		Database: "tokopedia-salamexp-quran",
+		Database: "nadc-databases",
 		User:     "postgres",
 		Password: "",
 	}
